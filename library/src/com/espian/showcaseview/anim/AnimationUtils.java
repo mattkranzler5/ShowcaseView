@@ -3,10 +3,9 @@ package com.espian.showcaseview.anim;
 import android.os.Handler;
 import android.view.View;
 
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.view.ViewHelper;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 
 public class AnimationUtils {
 
@@ -28,15 +27,15 @@ public class AnimationUtils {
     }
 
     public static float getX(View view) {
-        return ViewHelper.getX(view);
+        return view.getX();
     }
 
     public static float getY(View view) {
-        return ViewHelper.getY(view);
+        return view.getY();
     }
 
     public static void hide(View view) {
-        ViewHelper.setAlpha(view, INVISIBLE);
+        view.setAlpha(0);
     }
 
     public static ObjectAnimator createFadeInAnimation(Object target, final AnimationStartListener listener) {
@@ -97,7 +96,7 @@ public class AnimationUtils {
                                                       float offsetStartX, float offsetStartY,
                                                       float offsetEndX, float offsetEndY,
                                                       final AnimationEndListener listener) {
-        ViewHelper.setAlpha(view, INVISIBLE);
+        view.setAlpha(0);
 
         ObjectAnimator alphaIn = ObjectAnimator.ofFloat(view, ALPHA, INVISIBLE, VISIBLE).setDuration(500);
 
